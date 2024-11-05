@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
 type cliCommand struct {
@@ -34,7 +35,14 @@ func main() {
 		fmt.Print("Pokedex > ")
 		answer.Scan()
 
-		cmd, exists := figureCmd()[answer.Text()]
+		words := cleanInput(answer.Text())
+		if len(words) == 0 {
+			continue
+		}
+
+		commandName := words[0]
+
+		cmd, exists := figureCmd()[commandName]
 		if exists {
 			err := cmd.callback()
 			if err != nil {
@@ -46,6 +54,12 @@ func main() {
 			continue
 		}
 	}
+}
+
+func cleanInput(text string) []string {
+	output := strings.ToLower(text)
+	words := strings.Fields(output)
+	return words
 }
 
 func commandHelp() error {
