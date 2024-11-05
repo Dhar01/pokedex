@@ -15,12 +15,12 @@ func figureCmd() map[string]cliCommand {
 	return map[string]cliCommand{
 		"help": {
 			name:        "help",
-			description: "Displays a help message",
+			description: "displays a help message",
 			callback:    commandHelp,
 		},
 		"exit": {
 			name:        "exit",
-			description: "Exit the Pokedex",
+			description: "exit the Pokedex",
 			callback:    commandExit,
 		},
 		"map": {
@@ -35,26 +35,3 @@ func figureCmd() map[string]cliCommand {
 		},
 	}
 }
-
-// func commandHelp() error {
-// 	fmt.Println("\nWelcome to the Pokedex!")
-// 	fmt.Printf("Usage:\n\n")
-// 	for _, cmd := range figureCmd() {
-// 		fmt.Printf("%s: %s\n", cmd.name, cmd.description)
-// 	}
-// 	fmt.Println()
-// 	return nil
-// }
-
-// func commandExit() error {
-// 	os.Exit(0)
-// 	return nil
-// }
-
-// func commandMap() error {
-// 	return nil
-// }
-
-// func commandMapB() error {
-// 	return nil
-// }
