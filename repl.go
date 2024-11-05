@@ -8,20 +8,20 @@ import (
 )
 
 func startREPL() {
-	answer := bufio.NewScanner(os.Stdin)
+	input := bufio.NewScanner(os.Stdin)
 
 	for {
 		fmt.Print("Pokedex > ")
-		answer.Scan()
+		input.Scan()
 
-		words := cleanInput(answer.Text())
+		words := cleanInput(input.Text())
 		if len(words) == 0 {
 			continue
 		}
 
 		commandName := words[0]
 
-		cmd, exists := figureCmd()[commandName]
+		cmd, exists := selectCmd()[commandName]
 		if exists {
 			err := cmd.callback()
 			if err != nil {
@@ -29,7 +29,7 @@ func startREPL() {
 			}
 			continue
 		} else {
-			fmt.Println("Unknown cmd")
+			fmt.Println("invalid command!")
 			continue
 		}
 	}

@@ -11,7 +11,7 @@ type config struct {
 	previousLocationURL string
 }
 
-func figureCmd() map[string]cliCommand {
+func selectCmd() map[string]cliCommand {
 	return map[string]cliCommand{
 		"help": {
 			name:        "help",
