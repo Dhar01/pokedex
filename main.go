@@ -21,8 +21,7 @@ func main() {
 
 		commandName := words[0]
 
-		// cmd, exists := FigureCmd()[commandName]
-		cmd, exists := FigureCmd()[commandName]
+		cmd, exists := figureCmd()[commandName]
 		if exists {
 			err := cmd.callback()
 			if err != nil {

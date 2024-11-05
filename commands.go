@@ -1,17 +1,17 @@
 package main
 
-import (
-	"fmt"
-	"os"
-)
-
 type cliCommand struct {
 	name        string
 	description string
 	callback    func() error
 }
 
-func FigureCmd() map[string]cliCommand {
+type config struct {
+	nextLocationURL     string
+	previousLocationURL string
+}
+
+func figureCmd() map[string]cliCommand {
 	return map[string]cliCommand{
 		"help": {
 			name:        "help",
@@ -36,27 +36,25 @@ func FigureCmd() map[string]cliCommand {
 	}
 }
 
-func commandHelp() error {
-	fmt.Println("\nWelcome to the Pokedex!")
-	fmt.Printf("Usage:\n\n")
+// func commandHelp() error {
+// 	fmt.Println("\nWelcome to the Pokedex!")
+// 	fmt.Printf("Usage:\n\n")
+// 	for _, cmd := range figureCmd() {
+// 		fmt.Printf("%s: %s\n", cmd.name, cmd.description)
+// 	}
+// 	fmt.Println()
+// 	return nil
+// }
 
-	for _, cmd := range FigureCmd() {
-		fmt.Printf("%s: %s\n", cmd.name, cmd.description)
-	}
+// func commandExit() error {
+// 	os.Exit(0)
+// 	return nil
+// }
 
-	fmt.Println()
-	return nil
-}
+// func commandMap() error {
+// 	return nil
+// }
 
-func commandExit() error {
-	os.Exit(0)
-	return nil
-}
-
-func commandMap() error {
-	return nil
-}
-
-func commandMapB() error {
-	return nil
-}
+// func commandMapB() error {
+// 	return nil
+// }
