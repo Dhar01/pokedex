@@ -1,8 +1,12 @@
 package main
 
-import "os"
+import (
+	"fmt"
+	"os"
+)
 
 func commandExit() error {
+	fmt.Println("Thank you for using the Pokedex! Bye!")
 	os.Exit(0)
 	return nil
 }
