@@ -1,9 +1,9 @@
 package main
 
-func commandMap() error {
+func commandMapF(cfg *config) error {
 	return nil
 }
 
-func commandMapB() error {
+func commandMapB(cfg *config) error {
 	return nil
 }

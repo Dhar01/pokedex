@@ -16,3 +16,8 @@ Run the `run.sh` script on the command line.
 
 
 Enjoy!
+
+
+# Progress
+
+Visit [project](https://github.com/users/Dhar01/projects/1/views/1) section to track progress!
