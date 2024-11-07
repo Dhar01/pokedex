@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func startREPL() {
+func startREPL(cfg *config) {
 	input := bufio.NewScanner(os.Stdin)
 
 	for {
@@ -21,9 +21,9 @@ func startREPL() {
 
 		commandName := words[0]
 
-		cmd, exists := selectCmd()[commandName]
-		if exists {
-			err := cmd.callback()
+		cmd, ok := selectCmd()[commandName]
+		if ok {
+			err := cmd.callback(cfg)
 			if err != nil {
 				fmt.Println(err)
 			}

@@ -1,14 +1,17 @@
 package main
 
+import "github.com/Dhar01/pokedexcli/internal/pokeapi"
+
 type cliCommand struct {
 	name        string
 	description string
-	callback    func() error
+	callback    func(*config) error
 }
 
 type config struct {
-	nextLocationURL     string
-	previousLocationURL string
+	pokeAPIClient       pokeapi.Client
+	nextLocationURL     *string
+	previousLocationURL *string
 }
 
 func selectCmd() map[string]cliCommand {
@@ -26,7 +29,7 @@ func selectCmd() map[string]cliCommand {
 		"map": {
 			name:        "map",
 			description: "map of next 20 locations",
-			callback:    commandMap,
+			callback:    commandMapF,
 		},
 		"mapb": {
 			name:        "mapb",
