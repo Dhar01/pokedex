@@ -32,7 +32,7 @@ type LocationAreasResp struct {
 	} `json:"results"`
 }
 
-func (c *Client) ListLocationAreas() (LocationAreasResp, error) {
+func (c *Client) ListLocationAreas(pageURL *string) (LocationAreasResp, error) {
 	endPoint := "/location-area"
 	fullURL := baseURL + endPoint
 
