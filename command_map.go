@@ -6,15 +6,15 @@ import (
 )
 
 func commandMapF(cfg *config) error {
-	locationsForward, err := cfg.pokeAPIClient.ListLocationAreas(cfg.nextLocationURL)
+	locations, err := cfg.pokeApiClient.ListLocationAreas(cfg.nextLocationURL)
 	if err != nil {
 		return err
 	}
 
-	cfg.nextLocationURL = locationsForward.Next
-	cfg.previousLocationURL = locationsForward.Previous
+	cfg.nextLocationURL = locations.Next
+	cfg.prevLocationURL = locations.Previous
 
-	for _, location := range locationsForward.Results {
+	for _, location := range locations.Results {
 		fmt.Println(location.Name)
 	}
 
@@ -22,19 +22,19 @@ func commandMapF(cfg *config) error {
 }
 
 func commandMapB(cfg *config) error {
-	if cfg.previousLocationURL == nil {
+	if cfg.prevLocationURL == nil {
 		return errors.New("you're on the first page")
 	}
 
-	locationsBackward, err := cfg.pokeAPIClient.ListLocationAreas(cfg.previousLocationURL)
+	locations, err := cfg.pokeApiClient.ListLocationAreas(cfg.prevLocationURL)
 	if err != nil {
 		return err
 	}
 
-	cfg.nextLocationURL = locationsBackward.Next
-	cfg.previousLocationURL = locationsBackward.Previous
+	cfg.nextLocationURL = locations.Next
+	cfg.prevLocationURL = locations.Previous
 
-	for _, location := range locationsBackward.Results {
+	for _, location := range locations.Results {
 		fmt.Println(location.Name)
 	}
 

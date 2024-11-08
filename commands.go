@@ -9,9 +9,9 @@ type cliCommand struct {
 }
 
 type config struct {
-	pokeAPIClient       pokeapi.Client
-	nextLocationURL     *string
-	previousLocationURL *string
+	pokeApiClient   pokeapi.Client
+	nextLocationURL *string
+	prevLocationURL *string
 }
 
 func selectCmd() map[string]cliCommand {
