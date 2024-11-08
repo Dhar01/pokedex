@@ -2,53 +2,37 @@ package pokeapi
 
 import (
 	"encoding/json"
+	"fmt"
 	"io"
 	"net/http"
 )
 
+// getting the list of locations
 func (c *Client) ListLocationAreas(pageURL *string) (LocationAreasResp, error) {
 	fullURL := baseURL + "/location-area"
 	if pageURL != nil {
 		fullURL = *pageURL
 	}
 
-	// req, err := http.NewRequest("GET", fullURL, nil)
-	// if err != nil {
-	// 	return LocationAreasResp{}, err
-	// }
-
-	req, err := http.Get(fullURL)
+	response, err := http.Get(fullURL)
 	if err != nil {
 		return LocationAreasResp{}, err
 	}
 
-	// defer req.Body.Close()
+	defer response.Body.Close()
 
-	// body, err := io.ReadAll(req.Body)
-	// if err != nil {
-	// 	return LocationAreasResp{}, err
-	// }
-
-	resp, err := c.httpClient.Do(req)
-	if err != nil {
-		return LocationAreasResp{}, err
-	}
-	defer resp.Body.Close()
-
-	dat, err := io.ReadAll(resp.Body)
+	body, err := io.ReadAll(response.Body)
 	if err != nil {
 		return LocationAreasResp{}, err
 	}
 
-	// req.Body.Close()
-
-	// if req.StatusCode > 299 {
-	// 	return LocationAreasResp{}, fmt.Errorf("bad status code: %d and\nbody: %s", req.StatusCode, body)
-	// }
+	if response.StatusCode > 299 {
+		return LocationAreasResp{}, fmt.Errorf("failed with bad status code: %d", response.StatusCode)
+	}
 
 	locationArea := LocationAreasResp{}
-	// err = json.Unmarshal(body, &locationArea)
-	err = json.Unmarshal(dat, &locationArea)
+
+	err = json.Unmarshal(body, &locationArea)
 	if err != nil {
 		return LocationAreasResp{}, err
 	}
