@@ -2,3 +2,7 @@
 #!/usr/bin/env bash
 
 go run .
+
+# go build && ./pokedexclit
+
+
