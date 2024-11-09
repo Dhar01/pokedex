@@ -50,5 +50,24 @@ func (c Cache) Get(key string) ([]byte, bool) {
 func (c Cache) reapLoop(interval time.Duration) {
 	ticker := time.NewTicker(interval)
 	defer ticker.Stop()
-	
+
+	// for {
+	// 	select {
+	// 	case <-ticker.C:
+	// 		c.entryChecker(time.Now().UTC(), interval)
+	// 	}
+	// }
+
+	for range ticker.C {
+		c.entryChecker(time.Now().UTC(), interval)
+	}
+
+}
+
+func (c Cache) entryChecker(now time.Time, last time.Duration) {
+	c.mux.Lock()
+	defer c.mux.Unlock()
+
+	// code to add
+
 }
