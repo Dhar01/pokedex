@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func commandMapF(cfg *Config) error {
+func commandMapF(cfg *Config, args ...string) error {
 	locations, err := cfg.PokeApiClient.ListLocationAreas(cfg.nextLocationURL)
 	if err != nil {
 		return err
@@ -21,7 +21,7 @@ func commandMapF(cfg *Config) error {
 	return nil
 }
 
-func commandMapB(cfg *Config) error {
+func commandMapB(cfg *Config, args ...string) error {
 	if cfg.prevLocationURL == nil {
 		return errors.New("you're on the first page")
 	}

@@ -5,7 +5,7 @@ import "github.com/Dhar01/pokedexcli/internal/pokeapi"
 type cliCommand struct {
 	name        string
 	description string
-	Callback    func(*Config) error
+	Callback    func(*Config, ...string) error
 }
 
 type Config struct {
@@ -36,10 +36,12 @@ func SelectCmd() map[string]cliCommand {
 			description: "map of previous 20 locations",
 			Callback:    commandMapB,
 		},
+
 		"explore": {
-			name:        "explore",
-			description: "explore Pokemon in the specified area",
+			name:        "explore <location-name>",
+			description: "Explore a location",
 			Callback:    commandExplore,
 		},
+
 	}
 }
