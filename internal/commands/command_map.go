@@ -1,12 +1,12 @@
-package main
+package commands
 
 import (
 	"errors"
 	"fmt"
 )
 
-func commandMapF(cfg *config) error {
-	locations, err := cfg.pokeApiClient.ListLocationAreas(cfg.nextLocationURL)
+func commandMapF(cfg *Config) error {
+	locations, err := cfg.PokeApiClient.ListLocationAreas(cfg.nextLocationURL)
 	if err != nil {
 		return err
 	}
@@ -21,12 +21,12 @@ func commandMapF(cfg *config) error {
 	return nil
 }
 
-func commandMapB(cfg *config) error {
+func commandMapB(cfg *Config) error {
 	if cfg.prevLocationURL == nil {
 		return errors.New("you're on the first page")
 	}
 
-	locations, err := cfg.pokeApiClient.ListLocationAreas(cfg.prevLocationURL)
+	locations, err := cfg.PokeApiClient.ListLocationAreas(cfg.prevLocationURL)
 	if err != nil {
 		return err
 	}

@@ -5,9 +5,11 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	"github.com/Dhar01/pokedexcli/internal/commands"
 )
 
-func startREPL(cfg *config) {
+func startREPL(cfg *commands.Config) {
 	input := bufio.NewScanner(os.Stdin)
 
 	for {
@@ -21,9 +23,9 @@ func startREPL(cfg *config) {
 
 		commandName := words[0]
 
-		cmd, ok := selectCmd()[commandName]
+		cmd, ok := commands.SelectCmd()[commandName]
 		if ok {
-			err := cmd.callback(cfg)
+			err := cmd.Callback(cfg)
 			if err != nil {
 				fmt.Println(err)
 			}

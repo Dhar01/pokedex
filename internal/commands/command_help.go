@@ -1,12 +1,12 @@
-package main
+package commands
 
 import "fmt"
 
-func commandHelp(cfg *config) error {
+func commandHelp(cfg *Config) error {
 	fmt.Println("\nWelcome to the Pokedex!")
 	fmt.Printf("Usage:\n\n")
 
-	for _, cmd := range selectCmd() {
+	for _, cmd := range SelectCmd() {
 		fmt.Printf("%s: %s\n", cmd.name, cmd.description)
 	}
 
