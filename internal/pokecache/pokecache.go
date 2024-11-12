@@ -1,6 +1,7 @@
 package pokecache
 
 import (
+	"log"
 	"sync"
 	"time"
 )
@@ -43,6 +44,7 @@ func (c Cache) Get(key string) ([]byte, bool) {
 	defer c.mux.Unlock()
 
 	if data, ok := c.cache[key]; ok {
+		log.Print("cache found!")
 		return data.val, true
 	}
 
