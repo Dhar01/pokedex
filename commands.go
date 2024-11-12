@@ -36,5 +36,10 @@ func selectCmd() map[string]cliCommand {
 			description: "map of previous 20 locations",
 			callback:    commandMapB,
 		},
+		"explore": {
+			name: "explore",
+			description: "explore Pokemon in the specified area",
+			callback: commandExplore,
+		},
 	}
 }
