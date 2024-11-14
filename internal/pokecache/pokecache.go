@@ -27,7 +27,9 @@ func NewCache(interval time.Duration) Cache {
 	return c
 }
 
-// adding new entry to the cache
+// Add inserts a new entry into the cache with the specified key and value.
+// threads-safe and locks the cache during the update.
+// if an entry exists, it will be overwritten.
 func (c Cache) Add(key string, value []byte) {
 	c.mux.Lock()
 	defer c.mux.Unlock()
@@ -38,7 +40,7 @@ func (c Cache) Add(key string, value []byte) {
 	}
 }
 
-// check if an entry exists or not
+// Check if an entry exists in the cache, returns data and boolean value
 func (c Cache) Get(key string) ([]byte, bool) {
 	c.mux.Lock()
 	defer c.mux.Unlock()
