@@ -68,6 +68,7 @@ type Location struct {
 }
 
 
+// types of Pokemon
 type Pokemon struct {
 	Abilities []struct {
 		Ability struct {
