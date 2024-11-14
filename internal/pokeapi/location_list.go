@@ -7,7 +7,7 @@ import (
 	"net/http"
 )
 
-// getting the list of locations
+// Getting the list of locations
 func (c *Client) ListLocationAreas(pageURL *string) (LocationAreasResp, error) {
 	url := baseURL + "/location-area"
 	if pageURL != nil {
