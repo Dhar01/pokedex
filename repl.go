@@ -22,10 +22,14 @@ func startREPL(cfg *commands.Config) {
 		}
 
 		commandName := words[0]
+		args := []string{}
+		if len(words) > 1 {
+			args = words[1:]
+		}
 
 		cmd, ok := commands.SelectCmd()[commandName]
 		if ok {
-			err := cmd.Callback(cfg)
+			err := cmd.Callback(cfg, args...)
 			if err != nil {
 				fmt.Println(err)
 			}
