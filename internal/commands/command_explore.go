@@ -9,6 +9,7 @@ func commandExplore(cfg *Config, args ...string) error {
 	if len(args) != 1 {
 		return errors.New("provide a location name [explore <location-name]")
 	}
+
 	name := args[0]
 	location, err := cfg.PokeApiClient.GetLocation(name)
 	if err != nil {
