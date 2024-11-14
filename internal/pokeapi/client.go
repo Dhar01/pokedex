@@ -20,3 +20,10 @@ func NewClient(timeout, cacheInterval time.Duration) Client {
 		},
 	}
 }
+
+// func checkError[T any](result T, err error) (T, error) {
+// 	if err != nil {
+// 		return result, err
+// 	}
+// 	return result, nil
+// }
