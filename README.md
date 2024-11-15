@@ -1,29 +1,26 @@
-# PokeDex
+# PokeDex CLI
 
-Look up the information for Pokemon - on the command line!
-
+A command-line tool to look up Pokémon information!
 
 # Commands
 
-- `catch`: catch a pokemon! (*e.g `catch <pokemon-name>`*)
-- `exit`: to exit the application.
-- `explore`: explore Pokemon in the given area (*e.g `explore <location-name>`*)
-- `help`: looking for help?
-- `mapb`: displays the names of previous 20 location areas.
-- `map`: displays the names of 20 location areas.
-- `pokedex`: displays a list of pokemon you've caught!
+- **`catch`**: Catch a Pokémon by specifying its name.
+    **Example**: `catch <pokemon-name>`
+- **`exit`**: Exit the application gracefully.
+- **`explore`**: Explore Pokémon available in a specific location.
+    **Example**: `explore <location-name>`
+- **`help`**: Looking for help?
+- **`mapb`**: Displays the names of the previous 20 location areas.
+- **`map`**: Displays the names of 20 location areas.
+- **`pokedex`**: Show a list of all the Pokémon you have caught so far!
 
 # Execution
 
-> Need Go 1.20 or higher
+- **Requirements**: Go 1.20 or higher
+- **Run**: Execute the `run.sh` script from the command line.
 
-Run the `run.sh` script on the command line.
-
-
-Enjoy!
-
-
+Enjoy exploring the Pokémon world from your terminal!
 
 # Progress
 
-Visit [project](https://github.com/users/Dhar01/projects/1/views/1) section to track progress!
+Visit the [Project](https://github.com/users/Dhar01/projects/1/views/1) section on GitHub to track development progress!
