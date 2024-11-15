@@ -5,10 +5,10 @@ A command-line tool to look up Pokémon information!
 # Commands
 
 - **`catch`**: Catch a Pokémon by specifying its name.
-    **Example**: `catch <pokemon-name>`
+    <br>*Example*: `catch <pokemon-name>`
 - **`exit`**: Exit the application gracefully.
 - **`explore`**: Explore Pokémon available in a specific location.
-    **Example**: `explore <location-name>`
+    <br>*Example*: `explore <location-name>`
 - **`help`**: Looking for help?
 - **`mapb`**: Displays the names of the previous 20 location areas.
 - **`map`**: Displays the names of 20 location areas.
