@@ -25,4 +25,5 @@ Enjoy exploring the Pokémon world from your terminal!
 
 Visit the [Project](https://github.com/users/Dhar01/projects/1/views/1) section on GitHub to track development progress!
 
+
 ![code coverage badge](https://github.com/Dhar01/pokedex/actions/workflows/ci.yml/badge.svg)
